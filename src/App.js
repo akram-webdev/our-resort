@@ -29,7 +29,7 @@ const App = () => {
       <NavMobile />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/rooms" exact component={Rooms} />
+        <Route path="/rooms" element={Rooms} />
         <Route
           path="/rooms/:id"
           exact
