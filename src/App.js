@@ -28,7 +28,7 @@ const App = () => {
       <Navbar />
       <NavMobile />
       <Routes>
-        <Route path="/" exact component={Home} />
+        <Route path="/" element={<Home />} />
         <Route path="/rooms" exact component={Rooms} />
         <Route
           path="/rooms/:id"
