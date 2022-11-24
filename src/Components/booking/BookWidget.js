@@ -1,15 +1,14 @@
+import { TextField } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
+import { DateRangePicker } from "@mui/lab";
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { addDays, addWeeks } from "date-fns";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate, useLocation } from "react-router-dom";
-import { addDays, addWeeks } from "date-fns";
-// import TextField from "@material-ui/core/TextField";
-// import DateRangePicker from "@material-ui/lab/DateRangePicker";
-// import AdapterDateFns from "@material-ui/lab/AdapterDateFns";
-// import LocalizationProvider from "@material-ui/lab/LocalizationProvider";
-import Box from "@material-ui/core/Box";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getAllAvailable, postBookingDetails } from "../../actions/booking";
 import "../../styles/BookWidget.scss";
-
 /* Have to redo redux, store local form here and ONLY update onSubmission... */
 
 const BookWidget = () => {
@@ -54,7 +53,7 @@ const BookWidget = () => {
   return (
     <div className={`BookWidget ${showInfo ? "active" : ""}`}>
       <form onSubmit={handleSubmit}>
-        {/* <div className="date">
+        <div className="date">
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <DateRangePicker
               disablePast
@@ -79,7 +78,7 @@ const BookWidget = () => {
               )}
             />
           </LocalizationProvider>
-        </div> */}
+        </div>
         <div className="guest">
           <div className="adults">
             <label>Adults</label>
@@ -89,7 +88,7 @@ const BookWidget = () => {
                 name="adults"
                 onClick={() => updateAdultQuantity(1)}
               >
-                <i className="fas fa-plus"></i>
+                <i className="fas fa-plus">+</i>
               </div>
               <span>{formData.adults}</span>
               <div
@@ -99,7 +98,7 @@ const BookWidget = () => {
                   updateAdultQuantity(-1);
                 }}
               >
-                <i className="fas fa-minus"></i>
+                <i className="fas fa-minus">-</i>
               </div>
             </div>
           </div>
@@ -113,7 +112,7 @@ const BookWidget = () => {
                   updateChildrenQuantity(1);
                 }}
               >
-                <i className="fas fa-plus"></i>
+                <i className="fas fa-plus">+</i>
               </div>
               <span>{formData.children}</span>
               <div
@@ -123,7 +122,7 @@ const BookWidget = () => {
                   updateChildrenQuantity(-1);
                 }}
               >
-                <i className="fas fa-minus"></i>
+                <i className="fas fa-minus">-</i>
               </div>
             </div>
           </div>

@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { getRoom } from "../../../actions/rooms";
+import "../../../styles/Room.scss";
 import BookWidget from "../../booking/BookWidget";
 import { displayIcon } from "../../helper/Icons";
-import "../../../styles/Room.scss";
 const Room = (props) => {
   const dispatch = useDispatch();
   const location = useLocation();

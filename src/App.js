@@ -13,8 +13,7 @@ import Dining from "./Components/pages/Dining";
 import Footer from "./Components/pages/Footer";
 import Home from "./Components/pages/Home";
 import NoPage from "./Components/pages/NoPage";
-import Room from "./Components/pages/rooms/Room";
-import Rooms from "./Components/pages/rooms/Rooms";
+import Room from "./Components/pages/rooms/Rooms";
 import Tour from "./Components/pages/Tour";
 import "./styles/App.scss";
 const App = () => {
@@ -29,16 +28,16 @@ const App = () => {
       <NavMobile />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/rooms" element={Rooms} />
+        <Route path="/rooms" element={<Room/>} />
         <Route
           path="/rooms/:id"
           exact
           render={(props) => <Room {...props} />}
         />
-        <Route path="/dining" exact component={Dining} />
-        <Route path="/about" exact component={About} />
-        <Route path="/tours" exact component={Tour} />
-        <Route path="/booking" exact component={Booking} />
+        <Route path="/dining" element={<Dining/>} />
+        <Route path="/about"  element={<About/>} />
+        <Route path="/tours"  element={<Tour/>} />
+        <Route path="/booking"  element={<Booking/>}/>
         <Route path="/booking/availability" exact component={Available} />
         <Route path="/booking/checkout" exact component={Checkout} />
         <Route path="/booking/confirm" exact component={Confirm} />
