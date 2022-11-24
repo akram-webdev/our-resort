@@ -6,7 +6,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { addDays, addWeeks } from "date-fns";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { getAllAvailable, postBookingDetails } from "../../actions/booking";
 import "../../styles/BookWidget.scss";
 /* Have to redo redux, store local form here and ONLY update onSubmission... */
@@ -88,7 +88,7 @@ const BookWidget = () => {
                 name="adults"
                 onClick={() => updateAdultQuantity(1)}
               >
-                <i className="fas fa-plus">+</i>
+                <i className="fas fa-plus"></i>
               </div>
               <span>{formData.adults}</span>
               <div
@@ -98,7 +98,7 @@ const BookWidget = () => {
                   updateAdultQuantity(-1);
                 }}
               >
-                <i className="fas fa-minus">-</i>
+                <i className="fas fa-minus"></i>
               </div>
             </div>
           </div>
@@ -112,7 +112,7 @@ const BookWidget = () => {
                   updateChildrenQuantity(1);
                 }}
               >
-                <i className="fas fa-plus">+</i>
+                <i className="fas fa-plus"></i>
               </div>
               <span>{formData.children}</span>
               <div
@@ -122,13 +122,15 @@ const BookWidget = () => {
                   updateChildrenQuantity(-1);
                 }}
               >
-                <i className="fas fa-minus">-</i>
+                <i className="fas fa-minus"></i>
               </div>
             </div>
           </div>
         </div>
 
-        <button className="btn">Check Availability</button>
+        <Link to="/booking">
+          <button className="btn">Check</button>
+        </Link>
         <i
           className={`mobile-toggle fas fa-chevron-${showInfo ? "up" : "down"}`}
           onClick={toggleMobileDisplay}
